@@ -101,7 +101,9 @@ KERNELVER_2_6_35_OR_LATER := $(strip $(shell \
 	))
 
 # Allow CROSS_COMPILE to specify compiler base
+ifeq ($(CROSS_COMPILE),)
 CROSS_COMPILE := arm-eabi-
+endif
 CC := $(CROSS_COMPILE)gcc
 LD := $(CROSS_COMPILE)ld
 NM := $(CROSS_COMPILE)nm
